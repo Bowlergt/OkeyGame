@@ -3,10 +3,16 @@ public class Player {
     Tile[] playerTiles;
     int numberOfTiles;
 
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String YELLOW = "\u001B[33m";
+    public static final String BLUE = "\u001B[34m";
+    public static final String Reset = "\u001B[0m";
+
     public Player(String name) {
         setName(name);
         playerTiles = new Tile[15]; // there are at most 15 tiles a player owns at any time
-        numberOfTiles = 14; // currently this player owns 0 tiles, will pick tiles at the beggining of the game
+        numberOfTiles = 0; // currently this player owns 0 tiles, will pick tiles at the beggining of the game
     }
 
     /*
@@ -21,6 +27,21 @@ public class Player {
             playerTiles[i] = null;
         }
         return tile;
+    }
+    public void sortHand(){
+
+        Tile temp;
+        for (int i = 0; i < playerTiles.length - 1; i++) {
+            
+            for (int j = 0; j < playerTiles.length - i - 1; j++) {
+                if (playerTiles[j].getValue() > playerTiles[j + 1].getValue()) {
+                    
+                    temp = playerTiles[j];
+                    playerTiles[j] = playerTiles[j + 1];
+                    playerTiles[j + 1] = temp;                
+                }
+            }         
+        }
     }
 
     /*
@@ -53,10 +74,25 @@ public class Player {
     }
 
     public void displayTiles() {
+
         System.out.println(playerName + "'s Tiles:");
         for (int i = 0; i < numberOfTiles; i++) {
             if(playerTiles[i] != null){
-                System.out.print(playerTiles[i].toString() + " ");
+
+                if(playerTiles[i].colorNameToInt() == 2){
+                    System.out.print(RED + playerTiles[i].toString()  + Reset);
+                }
+                else if(playerTiles[i].colorNameToInt() == 1){
+                    System.out.print(BLUE +  playerTiles[i].toString() +  Reset);
+                }
+                else if(playerTiles[i].colorNameToInt() == 0){
+                    System.out.print(YELLOW + playerTiles[i].toString()  + Reset);
+                }
+                else if(playerTiles[i].colorNameToInt() == 3){
+                    System.out.print(GREEN + playerTiles[i].toString() +  Reset);
+                    
+                }
+
             }
             
         }

@@ -21,7 +21,7 @@ public class OkeyGame {
                 tiles[currentTile++] = new Tile(i,'Y');
                 tiles[currentTile++] = new Tile(i,'B');
                 tiles[currentTile++] = new Tile(i,'R');
-                tiles[currentTile++] = new Tile(i,'K');
+                tiles[currentTile++] = new Tile(i,'G');
             }
         }
     }
@@ -40,7 +40,15 @@ public class OkeyGame {
             players[2].playerTiles[i] = tiles[count++];
             players[3].playerTiles[i] = tiles[count++];
         }
+        players[0].playerTiles[14] = tiles[count];
+        players[0].numberOfTiles = 15;
+        players[1].numberOfTiles = 14;
+        players[2].numberOfTiles = 14;
+        players[3].numberOfTiles = 14;
+        
+
     }
+    
 
     /*
      * TODO: get the last discarded tile for the current player
