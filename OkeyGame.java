@@ -78,7 +78,7 @@ public class OkeyGame {
      * (this simulates picking up the tile discarded by the previous player)
      * it should return the toString method of the tile so that we can print what we picked
      */
-    public String getLastDiscardedTile() {
+    public String getLastDiscardedTile()
     {
         return null;
     }
@@ -88,7 +88,7 @@ public class OkeyGame {
      * that tile is no longer in the tiles array (this simulates picking up the top tile)
      * it should return the toString method of the tile so that we can print what we picked
      */
-    public String getTopTile() {
+    public String getTopTile() 
     {
         return null;
     }
@@ -96,8 +96,6 @@ public class OkeyGame {
     /*
      * TODO: should randomly shuffle the tiles array before game starts
      */
-    public void shuffleTiles() 
-    {
     public void shuffleTiles() {
         Random rand = new Random();
         Tile temp;
@@ -127,7 +125,7 @@ public class OkeyGame {
      * You should consider if the discarded tile is useful for the computer in
      * the current status. Print whether computer picks from tiles or discarded ones.
      */
-    public void pickTileForComputer() {
+    public void pickTileForComputer()
     {
         // if chain value > 2 and not duplicate get else getTopTile
         int compIndex,
@@ -161,8 +159,8 @@ public class OkeyGame {
      * known by other players. You may first discard duplicates and then
      * the single tiles and tiles that contribute to the smallest chains.
      */
-    public void discardTileForComputer() {
-
+    public void discardTileForComputer()
+    {
         int arrLen,
             compIndex,
             currentChain,

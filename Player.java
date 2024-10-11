@@ -54,6 +54,7 @@ public class Player {
      * should also update numberOfTiles accordingly.
      * make sure playerTiles are not more than 15 at any time
      */
+
     public void addTile(Tile t) {
 
        int TilesValue = t.getValue();
@@ -75,11 +76,6 @@ public class Player {
             playerTiles[i] = playerTiles[i - 1];
         }
         playerTiles[count] = t;
-=======
-    public void addTile(Tile t) 
-    {
-       
->>>>>>> Stashed changes
     }
 
     /*
@@ -88,7 +84,7 @@ public class Player {
      * does not disturb the winning condition
      * @return
      */
-    public boolean isWinningHand() {
+    public boolean isWinningHand() 
     {
         return false;
     }
@@ -142,4 +138,6 @@ public class Player {
     public String getName() {
         return playerName;
     }
+
+    
 }
