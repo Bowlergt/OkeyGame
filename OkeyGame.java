@@ -79,6 +79,7 @@ public class OkeyGame {
      * it should return the toString method of the tile so that we can print what we picked
      */
     public String getLastDiscardedTile()
+<<<<<<< HEAD
     {   
         int currentPlayerIndex;
         Player currentP;
@@ -86,6 +87,10 @@ public class OkeyGame {
         currentP = this.players[currentPlayerIndex];
         currentP.addTile(lastDiscardedTile);
         return lastDiscardedTile.toString();
+=======
+    {
+        return null;
+>>>>>>> origin/main
     }
 
     /*
