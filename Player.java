@@ -105,7 +105,7 @@ public class Player {
 
         for(int i =0; i<arLen; i++)
         {
-            while(playerTiles[indexOfTile].value == playerTiles[i].value )
+            if(playerTiles[indexOfTile].value == playerTiles[i].value)
             {
                 if(playerTiles[i].colorNameToInt() == 0)
                 {
@@ -122,19 +122,21 @@ public class Player {
                 else if(playerTiles[i].colorNameToInt() == 3)
                 {
                     green = true;
-                }
+                }   
             }
-
+            if(playerTiles[indexOfTile].value != playerTiles[i].value)
             if (playerTiles[indexOfTile].value != playerTiles[i].value )
             {
+                indexOfTile=i;
+                i--;
                 if(red && yellow && blue && green)
-                {
-                    count++;               
-                }
-                green = false;
-                yellow = false;
-                red = false;
-                blue = false;
+                    {
+                        count++;               
+                    }
+                    green = false;
+                    yellow = false;
+                    red = false;
+                    blue = false;
                 indexOfTile = i;
                 i--;
             }
