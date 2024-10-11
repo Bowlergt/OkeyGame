@@ -42,6 +42,7 @@ public class Player {
                         playerTiles[j + 1] = temp;                
                     }
                 }
+                
             }         
         }
     }
