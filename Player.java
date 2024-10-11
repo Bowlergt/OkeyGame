@@ -75,6 +75,11 @@ public class Player {
             playerTiles[i] = playerTiles[i - 1];
         }
         playerTiles[count] = t;
+=======
+    public void addTile(Tile t) 
+    {
+       
+>>>>>>> Stashed changes
     }
 
     /*
@@ -84,8 +89,11 @@ public class Player {
      * @return
      */
     public boolean isWinningHand() {
+    {
         return false;
     }
+
+
 
     public int findPositionOfTile(Tile t) {
         int tilePosition = -1;
