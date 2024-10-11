@@ -79,9 +79,19 @@ public class OkeyGame {
      * (this simulates picking up the tile discarded by the previous player)
      * it should return the toString method of the tile so that we can print what we picked
      */
-    public String getLastDiscardedTile() {
-
+    public String getLastDiscardedTile()
+<<<<<<< HEAD
+    {   
+        int currentPlayerIndex;
+        Player currentP;
+        currentPlayerIndex = getCurrentPlayerIndex();
+        currentP = this.players[currentPlayerIndex];
+        currentP.addTile(lastDiscardedTile);
+        return lastDiscardedTile.toString();
+=======
+    {
         return null;
+>>>>>>> origin/main
     }
 
     /*
