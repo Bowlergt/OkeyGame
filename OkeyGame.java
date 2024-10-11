@@ -8,6 +8,7 @@ public class OkeyGame {
     Tile lastDiscardedTile;
 
     int currentPlayerIndex = 0;
+    static int topTileIndex = 0;
 
     public OkeyGame() {
         players = new Player[4];
@@ -78,9 +79,13 @@ public class OkeyGame {
      * (this simulates picking up the tile discarded by the previous player)
      * it should return the toString method of the tile so that we can print what we picked
      */
-    public String getLastDiscardedTile()
-    {
-        return null;
+    public String getLastDiscardedTile(){
+        int currentPlayerIndex;
+        Player currentP;
+        currentPlayerIndex = getCurrentPlayerIndex();
+        currentP = this.players[currentPlayerIndex];
+        currentP.addTile(lastDiscardedTile);
+        return lastDiscardedTile.toString();
     }
 
     /*
@@ -88,9 +93,11 @@ public class OkeyGame {
      * that tile is no longer in the tiles array (this simulates picking up the top tile)
      * it should return the toString method of the tile so that we can print what we picked
      */
-    public String getTopTile() 
-    {
-        return null;
+    public String getTopTile(){
+       Tile tile = tiles[topTileIndex];
+       players[getCurrentPlayerIndex()].addTile(tile);
+       topTileIndex++;
+       return tile.toString();
     }
 
     /*
@@ -142,11 +149,11 @@ public class OkeyGame {
         chainValue = calculateChainValue(computerTiles, lastDiscardedTile, -1);
         if(chainValue > 2 && !isTDuplicate)
         {
-          // pick from last discarded
+            getLastDiscardedTile();
         }
         else
         {
-            //get Top tile
+            getTopTile();
         }
 
    
