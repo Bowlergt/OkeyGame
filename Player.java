@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Player {
     String playerName;
     Tile[] playerTiles;
@@ -44,7 +42,6 @@ public class Player {
                         playerTiles[j + 1] = temp;                
                     }
                 }
-                
             }         
         }
     }

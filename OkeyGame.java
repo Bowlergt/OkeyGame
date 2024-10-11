@@ -110,6 +110,7 @@ public class OkeyGame {
     /*
      * TODO: should randomly shuffle the tiles array before game starts
      */
+
     public void shuffleTiles() {
         Random rand = new Random();
         Tile temp;
@@ -140,6 +141,18 @@ public class OkeyGame {
      * the current status. Print whether computer picks from tiles or discarded ones.
      */
     public void pickTileForComputer() {
+    
+        // if chain value > 2 and not duplicate get else getTopTile
+        int compIndex,
+            chainValue;
+        Player computer;
+        Tile[] computerTiles;
+        boolean isTDuplicate;
+    
+        compIndex = getCurrentPlayerIndex();
+        computer = this.players[compIndex];
+        computerTiles = computer.getTiles();
+        isTDuplicate = isDuplicate(computerTiles, lastDiscardedTile, -1);
 
     }
 
@@ -150,6 +163,22 @@ public class OkeyGame {
      * the single tiles and tiles that contribute to the smallest chains.
      */
     public void discardTileForComputer() {
+
+        int arrLen,
+            compIndex,
+            currentChain,
+            leastChain,
+            leastChainIndex;
+        Player computer;
+        int[] chains;
+        Tile[] computerTiles;
+        Tile currentTile;
+        
+        compIndex = getCurrentPlayerIndex();
+        computer = this.players[compIndex];
+        computerTiles = computer.getTiles();
+        arrLen = computerTiles.length;
+        chains = new int[arrLen];
 
     }
 
