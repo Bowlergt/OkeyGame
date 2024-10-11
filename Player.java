@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Player {
     String playerName;
     Tile[] playerTiles;
@@ -34,12 +36,15 @@ public class Player {
         for (int i = 0; i < playerTiles.length - 1; i++) {
             
             for (int j = 0; j < playerTiles.length - i - 1; j++) {
-                if (playerTiles[j].getValue() > playerTiles[j + 1].getValue()) {
+                if(playerTiles[j] != null && playerTiles[j + 1] != null){
+                    if (playerTiles[j].getValue() > playerTiles[j + 1].getValue()) {
                     
-                    temp = playerTiles[j];
-                    playerTiles[j] = playerTiles[j + 1];
-                    playerTiles[j + 1] = temp;                
+                        temp = playerTiles[j];
+                        playerTiles[j] = playerTiles[j + 1];
+                        playerTiles[j + 1] = temp;                
+                    }
                 }
+                
             }         
         }
     }
@@ -50,7 +55,26 @@ public class Player {
      * make sure playerTiles are not more than 15 at any time
      */
     public void addTile(Tile t) {
-       
+
+       int TilesValue = t.getValue();
+       int count = 0;
+       boolean check = true;
+       for(int i = 0; i < playerTiles.length && check ; i++){
+            if(playerTiles[i] != null){
+
+                if(playerTiles[i].getValue() <= TilesValue){
+                count++;
+                }
+                else{
+                check = false;
+                }
+           }
+        }
+        
+        for(int i = playerTiles.length; i  >  count; i--){
+            playerTiles[i] = playerTiles[i - 1];
+        }
+        playerTiles[count] = t;
     }
 
     /*
