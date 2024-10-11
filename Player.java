@@ -82,11 +82,7 @@ public class Player {
      * does not disturb the winning condition
      * @return
      */
-<<<<<<< Updated upstream
-    public boolean isWinningHand() 
-    {
-        return false;
-=======
+
     public boolean isWinningHand() {
       
         int arLen,
@@ -131,6 +127,10 @@ public class Player {
 
             if (playerTiles[indexOfTile].value != playerTiles[i].value )
             {
+                if(red && yellow && blue && green)
+                {
+                    count++;               
+                }
                 green = false;
                 yellow = false;
                 red = false;
@@ -138,10 +138,7 @@ public class Player {
                 indexOfTile = i;
                 i--;
             }
-            if(red && yellow && blue && green)
-            {
-                count++;               
-            }
+            
         }
         if(count == 3)
         {
@@ -151,7 +148,7 @@ public class Player {
         {
             return false;
         }   
->>>>>>> Stashed changes
+
     }
 
 

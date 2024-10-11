@@ -126,6 +126,10 @@ public class OkeyGame {
         {
             return true;
         }
+        else if(topTileIndex==55)
+        {
+            return true;
+        }
         
         return false;
       
