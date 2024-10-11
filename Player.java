@@ -104,16 +104,16 @@ public class Player {
             if(playerTiles[i] != null){
 
                 if(playerTiles[i].colorNameToInt() == 2){
-                    System.out.print(RED + playerTiles[i].toString()  + Reset);
+                    System.out.print(RED + playerTiles[i].toString() + " " + Reset);
                 }
                 else if(playerTiles[i].colorNameToInt() == 1){
-                    System.out.print(BLUE +  playerTiles[i].toString() +  Reset);
+                    System.out.print(BLUE +  playerTiles[i].toString() + " " + Reset);
                 }
                 else if(playerTiles[i].colorNameToInt() == 0){
-                    System.out.print(YELLOW + playerTiles[i].toString()  + Reset);
+                    System.out.print(YELLOW + playerTiles[i].toString() + " " + Reset);
                 }
                 else if(playerTiles[i].colorNameToInt() == 3){
-                    System.out.print(GREEN + playerTiles[i].toString() +  Reset);
+                    System.out.print(GREEN + playerTiles[i].toString() + " " +  Reset);
                     
                 }
 

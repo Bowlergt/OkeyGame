@@ -37,25 +37,42 @@ public class OkeyGame {
     public void distributeTilesToPlayers() {
         int count = 0;
         for(int i = 0; i < 14; i++){
-            players[0].playerTiles[i] = tiles[count++];
-            players[1].playerTiles[i] = tiles[count++];
-            players[2].playerTiles[i] = tiles[count++];
-            players[3].playerTiles[i] = tiles[count++];
+            players[0].playerTiles[i] = tiles[count];
+            tiles[count] = null;
+            count++;
+
+            players[1].playerTiles[i] = tiles[count];
+            tiles[count] = null;
+            count++;
+
+            players[2].playerTiles[i] = tiles[count];
+            tiles[count] = null;
+            count++;
+
+            players[3].playerTiles[i] = tiles[count];
+            tiles[count] = null;
+            count++;
         }
         players[0].playerTiles[14] = tiles[count];
         players[0].numberOfTiles = 15;
         players[1].numberOfTiles = 14;
         players[2].numberOfTiles = 14;
         players[3].numberOfTiles = 14;
-        
+
+        //Sorting player's hands
         players[0].sortHand();
         players[1].sortHand();
         players[2].sortHand();
         players[3].sortHand();
-
+        slideTiles();
     }
-    
+    public void slideTiles(){
 
+        for(int i = 57; i < 112; i++){
+            tiles[i - 57] = tiles[i];
+            tiles[i] = null;
+        }
+    }
     /*
      * TODO: get the last discarded tile for the current player
      * (this simulates picking up the tile discarded by the previous player)
