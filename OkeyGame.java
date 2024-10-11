@@ -6,6 +6,7 @@ public class OkeyGame {
     Tile[] tiles;
 
     Tile lastDiscardedTile;
+    static int topTileIndex = 0;
 
     int currentPlayerIndex = 0;
 
@@ -78,8 +79,8 @@ public class OkeyGame {
      * (this simulates picking up the tile discarded by the previous player)
      * it should return the toString method of the tile so that we can print what we picked
      */
-    public String getLastDiscardedTile()
-    {
+    public String getLastDiscardedTile() {
+
         return null;
     }
 
@@ -88,9 +89,12 @@ public class OkeyGame {
      * that tile is no longer in the tiles array (this simulates picking up the top tile)
      * it should return the toString method of the tile so that we can print what we picked
      */
-    public String getTopTile() 
-    {
-        return null;
+    public String getTopTile() {
+        Tile tile = tiles[topTileIndex];
+        tiles[topTileIndex] = null;
+        players[getCurrentPlayerIndex()].addTile(tile);
+        topTileIndex++;
+        return tile.toString();
     }
 
     /*
@@ -125,31 +129,7 @@ public class OkeyGame {
      * You should consider if the discarded tile is useful for the computer in
      * the current status. Print whether computer picks from tiles or discarded ones.
      */
-    public void pickTileForComputer()
-    {
-        // if chain value > 2 and not duplicate get else getTopTile
-        int compIndex,
-            chainValue;
-        Player computer;
-        Tile[] computerTiles;
-        boolean isTDuplicate;
-    
-        compIndex = getCurrentPlayerIndex();
-        computer = this.players[compIndex];
-        computerTiles = computer.getTiles();
-        isTDuplicate = isDuplicate(computerTiles, lastDiscardedTile, -1);
-
-        chainValue = calculateChainValue(computerTiles, lastDiscardedTile, -1);
-        if(chainValue > 2 && !isTDuplicate)
-        {
-          // pick from last discarded
-        }
-        else
-        {
-            //get Top tile
-        }
-
-   
+    public void pickTileForComputer() {
 
     }
 
@@ -159,117 +139,8 @@ public class OkeyGame {
      * known by other players. You may first discard duplicates and then
      * the single tiles and tiles that contribute to the smallest chains.
      */
-    public void discardTileForComputer()
-    {
-        int arrLen,
-            compIndex,
-            currentChain,
-            leastChain,
-            leastChainIndex;
-        Player computer;
-        int[] chains;
-        Tile[] computerTiles;
-        Tile currentTile;
-        
-        compIndex = getCurrentPlayerIndex();
-        computer = this.players[compIndex];
-        computerTiles = computer.getTiles();
-        arrLen = computerTiles.length;
-        chains = new int[arrLen];
+    public void discardTileForComputer() {
 
-        for(int i = 0; i<arrLen;i++)
-        {   
-            currentTile = computerTiles[i];
-            
-                //DUPLICATE
-            if(isDuplicate(computerTiles, currentTile, i))
-            {
-                discardTile(i);
-                displayDiscardInformation();
-                return;
-            }
-            else
-            {
-                currentChain = calculateChainValue(computerTiles, currentTile, i);
-                chains[i] = currentChain;
-            }       
-        }
-        //compare the chains
-        leastChain = chains[0];
-        leastChainIndex = 0;
-        for(int i = 0 ; i<arrLen; i++)
-        {
-            currentChain = chains[i];
-            if(leastChain > currentChain)
-            {
-                leastChain = currentChain;
-                leastChainIndex = i;
-            }
-        }
-        //discard least chain index
-        discardTile(leastChainIndex);
-        displayDiscardInformation();    
-        
-
-    }
-
-    // !!!
-    public boolean isDuplicate(Tile[] tileList,Tile currentTile,int tileIndex)
-    {
-        int size;
-        Tile nextTile;
-        boolean isChain;
-        size = tileList.length;
-
-        isChain = true;
-        for(int i = 0; i<size && isChain;i++)
-        {
-            nextTile = tileList[i];
-            if(!currentTile.canFormChainWith(nextTile))
-            {  
-                if((currentTile.getColor() == nextTile.getColor()) || (currentTile.getValue() == nextTile.getValue()))
-                {
-                    if(i != tileIndex)
-                    {
-                        return true;
-                    }
-                }
-                else
-                {
-                    isChain = false;
-                } 
-            }
-        }
-        return false;
-    }
-
-
-    // !!! -1 tile index if not needed
-    public int calculateChainValue(Tile[] tileList,Tile currentTile,int tileIndex)
-    {
-        int size,
-            chainCount;
-        boolean isChain;
-        Tile nextTile;
-
-        isChain = true;
-        chainCount = 1;
-        size = tileList.length;
-
-        for(int i = 0; i<size && isChain; i++)
-        {
-            nextTile = tileList[i];
-            if(currentTile.canFormChainWith(nextTile))
-            {
-                chainCount += 1;
-            }
-            else
-            {
-                if(i != tileIndex)
-                isChain = false;
-            }
-        }
-        return chainCount;
     }
 
     /*
