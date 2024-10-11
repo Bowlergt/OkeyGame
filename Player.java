@@ -82,9 +82,76 @@ public class Player {
      * does not disturb the winning condition
      * @return
      */
+<<<<<<< Updated upstream
     public boolean isWinningHand() 
     {
         return false;
+=======
+    public boolean isWinningHand() {
+      
+        int arLen,
+            count,
+            indexOfTile;
+
+        boolean green,
+                yellow,
+                red,
+                blue;
+        
+        count=0;
+        arLen = this.playerTiles.length;  
+        indexOfTile=0;
+    
+        green = false;
+        yellow = false;
+        red = false;
+        blue = false;
+
+        for(int i =0; i<arLen; i++)
+        {
+            while(playerTiles[indexOfTile].value == playerTiles[i].value )
+            {
+                if(playerTiles[i].colorNameToInt() == 0)
+                {
+                    yellow = true;
+                }
+                else if(playerTiles[i].colorNameToInt() == 1)
+                {
+                    blue = true;
+                }
+                else if(playerTiles[i].colorNameToInt() == 2)
+                {
+                    red = true;
+                }
+                else if(playerTiles[i].colorNameToInt() == 3)
+                {
+                    green = true;
+                }
+            }
+
+            if (playerTiles[indexOfTile].value != playerTiles[i].value )
+            {
+                green = false;
+                yellow = false;
+                red = false;
+                blue = false;
+                indexOfTile = i;
+                i--;
+            }
+            if(red && yellow && blue && green)
+            {
+                count++;               
+            }
+        }
+        if(count == 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }   
+>>>>>>> Stashed changes
     }
 
 

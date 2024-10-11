@@ -122,7 +122,13 @@ public class OkeyGame {
      * finished the game, use isWinningHand() method of Player to decide
      */
     public boolean didGameFinish() {
+        if(players[getCurrentPlayerIndex()].isWinningHand())
+        {
+            return true;
+        }
+        
         return false;
+      
     }
 
     /*
