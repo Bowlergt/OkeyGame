@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class ApplicationMain {
 
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         OkeyGame game = new OkeyGame();

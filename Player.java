@@ -70,7 +70,7 @@ public class Player {
            }
         }
         
-        for(int i = playerTiles.length; i  >  count; i--){
+        for(int i = playerTiles.length - 1; i  >  count; i--){
             playerTiles[i] = playerTiles[i - 1];
         }
         playerTiles[count] = t;
@@ -138,7 +138,7 @@ public class Player {
                     blue = false;
             }   
         }
-        if(count == 3)
+        if(count == 4)
         {
             return true;
         }

@@ -59,6 +59,8 @@ public class OkeyGame {
         players[1].numberOfTiles = 14;
         players[2].numberOfTiles = 14;
         players[3].numberOfTiles = 14;
+        
+
 
         //Sorting player's hands
         players[0].sortHand();
@@ -106,13 +108,16 @@ public class OkeyGame {
     public void shuffleTiles() {
         Random rand = new Random();
         Tile temp;
-        Tile randomTile;
+        int first;
+        int second;
 
         for(int i = 0; i < 112; i++){
-            temp = tiles[i];
-            randomTile = tiles[rand.nextInt(112)];
-            tiles[i] = randomTile;
-            randomTile = temp;
+            first = rand.nextInt(112);
+            second = rand.nextInt(112);
+
+            temp = tiles[first];
+            tiles[first] = tiles[second];
+            tiles[second] = temp;
         }
 
     }
