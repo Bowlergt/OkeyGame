@@ -106,7 +106,8 @@ public class ApplicationMain {
                     game.discardTileForComputer();
                     game.passTurnToNextPlayer();
                 }
-                else{
+                else
+                {
                     // current computer character wins
                     System.out.println(game.getCurrentPlayerName() + " wins.");
                 }

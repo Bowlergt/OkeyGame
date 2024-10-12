@@ -236,7 +236,13 @@ public class OkeyGame {
 
     }
 
-    // !!!
+    /** *
+    * A method that checks if a tile has a duplicate or not
+    *@param tileList 
+    *@param currentTile
+    *@param tileIndex -1 if not needed otherwise tileIndex
+    *@return true if duplicate false 
+    */
     public boolean isDuplicate(Tile[] tileList,Tile currentTile,int tileIndex)
     {
         int size;
@@ -266,8 +272,14 @@ public class OkeyGame {
         return false;
     }
 
-
-    // !!! -1 tile index if not needed
+    /** *
+    * A method that calculates the chain value for a title tile Index 
+    *must be -1 for the cases where it is not needed
+    *@param tileList 
+    *@param currentTile
+    *@param tileIndex -1 if not needed otherwise tileIndex
+    *@return chain value 
+    */
     public int calculateChainValue(Tile[] tileList,Tile currentTile,int tileIndex)
     {
         int size,
