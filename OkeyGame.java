@@ -229,6 +229,7 @@ public class OkeyGame {
             }
         }
         //discard least chain index
+    
         discardTile(leastChainIndex);
         displayDiscardInformation();    
         
@@ -256,7 +257,7 @@ public class OkeyGame {
                         return true;
                     }
                 }
-                else
+                else if(tileIndex < i)
                 {
                     isChain = false;
                 } 
@@ -285,9 +286,9 @@ public class OkeyGame {
             {
                 chainCount += 1;
             }
-            else
+            else 
             {
-                if(i != tileIndex)
+                if(i > tileIndex)
                 isChain = false;
             }
         }
