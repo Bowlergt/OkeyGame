@@ -249,7 +249,7 @@ public class OkeyGame {
             nextTile = tileList[i];
             if(!currentTile.canFormChainWith(nextTile))
             {  
-                if((currentTile.getColor() == nextTile.getColor()) || (currentTile.getValue() == nextTile.getValue()))
+                if((currentTile.getColor() == nextTile.getColor()) && (currentTile.getValue() == nextTile.getValue()))
                 {
                     if(i != tileIndex)
                     {
