@@ -125,7 +125,6 @@ public class Player {
                 }   
             }
             if(playerTiles[indexOfTile].value != playerTiles[i].value)
-            if (playerTiles[indexOfTile].value != playerTiles[i].value )
             {
                 indexOfTile=i;
                 i--;
@@ -137,10 +136,7 @@ public class Player {
                     yellow = false;
                     red = false;
                     blue = false;
-                indexOfTile = i;
-                i--;
-            }
-            
+            }   
         }
         if(count == 3)
         {
@@ -150,10 +146,7 @@ public class Player {
         {
             return false;
         }   
-
     }
-
-
 
     public int findPositionOfTile(Tile t) {
         int tilePosition = -1;
