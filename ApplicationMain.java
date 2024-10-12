@@ -1,5 +1,11 @@
+/*
+ * The main class of the OkeyGame.
+ * 
+ * 
+ * @author: Zeynep Avcı, Kaan Aydınlı, Azra Giray, Demir Kandemir
+ * @date: 12/10/2024
+ */
 import java.util.Scanner;
-
 public class ApplicationMain {
 
     
@@ -52,19 +58,22 @@ public class ApplicationMain {
 
                 System.out.print("Your choice: ");
                 playerChoice = sc.nextInt();
+                
 
                 // after the first turn we can pick up
                 if(!firstTurn) {
                     if(playerChoice == 1) {
                         System.out.println("You picked up: " + game.getTopTile());
                         firstTurn = false;
+                       
                     }
                     else if(playerChoice == 2) {
                         System.out.println("You picked up: " + game.getLastDiscardedTile()); 
+                        
                     }
-
+                    
                     // display the hand after picking up new tile
-                    game.displayCurrentPlayersTiles();
+                     game.displayCurrentPlayersTiles();
                 }
                 else{
                     // after first turn it is no longer the first turn
@@ -81,9 +90,19 @@ public class ApplicationMain {
                     playerChoice = sc.nextInt();
 
                     // TODO: make sure the given index is correct, should be 0 <= index <= 14
-
+                    if(playerChoice>=0 && playerChoice<=14)
+                    {
                     game.discardTile(playerChoice);
                     game.passTurnToNextPlayer();
+                    }
+                    else
+                    {
+                        System.out.println("Please enter a number that is between 1-14.");
+                    }
+                }
+                else if(OkeyGame.isTileFinish())
+                {   //if there is no tile on the table to take, game will finish.
+                    System.out.println("There is no more tile on the table so game is finished.");
                 }
                 else{
                     // if we finish the hand we win
@@ -106,8 +125,11 @@ public class ApplicationMain {
                     game.discardTileForComputer();
                     game.passTurnToNextPlayer();
                 }
-                else
+                else if(OkeyGame.isTileFinish())
                 {
+                    System.out.println("There is no more tile on the table so game is finished.");
+                }
+                else{
                     // current computer character wins
                     System.out.println(game.getCurrentPlayerName() + " wins.");
                 }

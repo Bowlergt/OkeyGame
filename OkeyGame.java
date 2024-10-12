@@ -1,5 +1,11 @@
+/*
+ * A simple game that is called OkeyGame. The main goal is to make 3 chain of 4 tiles. That 4 tiles should have different colors and same numbers.
+ * 
+ * 
+ * @author: Zeynep Avcı, Kaan Aydınlı, Azra Giray, Demir Kandemir
+ * @date: 12/10/2024
+ */
 import java.util.Random;
-
 public class OkeyGame {
 
     Player[] players;
@@ -13,7 +19,7 @@ public class OkeyGame {
     public OkeyGame() {
         players = new Player[4];
     }
-
+  
     public void createTiles() {
         tiles = new Tile[112];
         int currentTile = 0;
@@ -69,6 +75,7 @@ public class OkeyGame {
         players[3].sortHand();
         slideTiles();
     }
+    //it left-alignes the array of tiles
     public void slideTiles(){
 
         for(int i = 57; i < 112; i++){
@@ -131,10 +138,7 @@ public class OkeyGame {
         {
             return true;
         }
-        else if(topTileIndex==55)
-        {
-            return true;
-        }
+       
         
         return false;
       
@@ -342,6 +346,18 @@ public class OkeyGame {
     public void setPlayerName(int index, String name) {
         if(index >= 0 && index <= 3) {
             players[index] = new Player(name);
+        }
+    }
+    //check the tile on the table, if there is not, it returns false.
+    public static boolean isTileFinish()
+    {
+        if(topTileIndex==55)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

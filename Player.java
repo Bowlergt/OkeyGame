@@ -1,3 +1,10 @@
+/*
+ * A player for OkeyGame.
+ * 
+ * 
+ * @author: Zeynep Avcı, Kaan Aydınlı, Azra Giray, Demir Kandemir
+ * @date: 12/10/2024
+ */
 public class Player {
     String playerName;
     Tile[] playerTiles;
@@ -28,6 +35,7 @@ public class Player {
         }
         return tile;
     }
+    //it sorts player's hand
     public void sortHand(){
 
         Tile temp;
@@ -80,7 +88,7 @@ public class Player {
      * TODO: checks if this player's hand satisfies the winning condition
      * to win this player should have 3 chains of length 4, extra tiles
      * does not disturb the winning condition
-     * @return
+     * @return true or false
      */
 
     public boolean isWinningHand() {
@@ -138,7 +146,7 @@ public class Player {
                     blue = false;
             }   
         }
-        if(count == 4)
+        if(count == 3)
         {
             return true;
         }
@@ -157,7 +165,7 @@ public class Player {
         }
         return tilePosition;
     }
-
+    //it displays tiles colorful.
     public void displayTiles() {
 
         System.out.println(playerName + "'s Tiles:");

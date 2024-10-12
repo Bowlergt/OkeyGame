@@ -75,10 +75,5 @@ public class Tile {
     public char getColor() {
         return color;
     }
-    public boolean equals(Tile t){
-        if(t.getColor() == getColor() && t.getValue() == getValue()){
-            return true;
-        }
-        return false;
-    }
+   
 }
