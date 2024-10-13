@@ -65,7 +65,6 @@ public class OkeyGame {
         players[1].numberOfTiles = 14;
         players[2].numberOfTiles = 14;
         players[3].numberOfTiles = 14;
-        
 
 
         //Sorting player's hands
@@ -174,9 +173,6 @@ public class OkeyGame {
         {
             getTopTile();
         }
-
-   
-
     }
 
     /*
